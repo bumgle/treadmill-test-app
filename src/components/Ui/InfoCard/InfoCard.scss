@@ -1,0 +1,32 @@
+.icards-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 -0.05em;
+
+  & > * {
+    margin: 0.05em;
+  }
+}
+
+.icard {
+  border: 1px solid $btnColor;
+  border-radius: 0.1em;
+  padding: 0.1em;
+  flex: 1 1;
+  flex-basis: 33%;
+
+  &__title {
+    margin: 0 0 0.25em 0;
+    font-size: 0.25em;
+    color: #999;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__value {
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.25em;
+  }
+}

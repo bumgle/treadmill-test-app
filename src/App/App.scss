@@ -1,0 +1,32 @@
+html {
+  box-sizing: border-box;
+  //font: 4.5vmin sans-serif;
+  font: sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #000;
+  position: relative;
+  height: 100vh;
+}
+
+.box {
+  width: 100vw;
+  height: 600 / 1024 * 100vw;
+  background: #fff;
+  max-height: 100vh;
+  max-width: 1024 / 600 * 100vh;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5em;
+}

@@ -1,0 +1,17 @@
+.nav-btn {
+  flex: 1 1 100%;
+  text-align: center;
+  font-size: 0.2em;
+  padding: 0.15em;
+  color: $btnColor;
+  text-decoration: none;
+
+  &:not(:last-child) {
+    border-right: 1px solid $btnColor;
+  }
+
+  &.isActive {
+    background-color: $btnColor;
+    color: #fff;
+  }
+}

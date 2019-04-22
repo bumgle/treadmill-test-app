@@ -1,0 +1,7 @@
+.away-from-screen {
+  position: relative;
+  > * {
+    position: absolute;
+    left: -9999px;
+  }
+}
