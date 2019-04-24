@@ -1,14 +1,14 @@
-import { TreadmillDataType, TreadmillProcessedType } from '../../types'
+import { TreadmillDataType, TreadmillProcessedType } from '../../types';
 
 const toHHMMSS = (secs: number): string => {
-  const hours = Math.floor(secs / 3600) % 24
-  const minutes = Math.floor(secs / 60) % 60
-  const seconds = secs % 60
+  const hours = Math.floor(secs / 3600) % 24;
+  const minutes = Math.floor(secs / 60) % 60;
+  const seconds = secs % 60;
   return [hours, minutes, seconds]
     .map(v => (v < 10 ? `0${v}` : v))
     .filter((v, i) => v !== '00' || i > 0)
-    .join(':')
-}
+    .join(':');
+};
 
 const MSDictianary = [
   {
@@ -25,13 +25,13 @@ const MSDictianary = [
     speed_unit_koef: 0.621371,
     pace: 'min/Mi'
   }
-]
+];
 
 export default function processTreadmillData(
   data: TreadmillDataType,
   metrickSystem: boolean
 ): TreadmillProcessedType {
-  const MSSystem = MSDictianary[Number(metrickSystem)]
+  const MSSystem = MSDictianary[Number(metrickSystem)];
 
   return {
     duration: toHHMMSS(Math.floor(data.duration)),
@@ -50,5 +50,5 @@ export default function processTreadmillData(
     distance: `${(data.distance * MSSystem.speed_unit_koef).toFixed(2)} ${
       MSSystem.distance
     }`
-  }
+  };
 }

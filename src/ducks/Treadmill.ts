@@ -1,14 +1,14 @@
-import processTreadmillData from '../services/processTreadmillData'
+import processTreadmillData from '../services/processTreadmillData';
 
-import { TreadmillType, TreadmillDataType } from '../types'
+import { TreadmillType, TreadmillDataType } from '../types';
 
-const TREADMILL_LOADED = 'treadmill/fakeApi/load'
+const TREADMILL_LOADED = 'treadmill/fakeApi/load';
 
 type ILoadTreadmillAction = {
-  type: string
-  data: TreadmillDataType
-  metricSystem: boolean
-}
+  type: string;
+  data: TreadmillDataType;
+  metricSystem: boolean;
+};
 
 export const sendTreadMillDataAction = (
   dataTreadmill: TreadmillDataType,
@@ -17,7 +17,7 @@ export const sendTreadMillDataAction = (
   type: TREADMILL_LOADED,
   data: dataTreadmill,
   metricSystem
-})
+});
 
 const initialState: TreadmillType = {
   raw: {
@@ -40,7 +40,7 @@ const initialState: TreadmillType = {
     pace: '',
     distance: ''
   }
-}
+};
 
 export default function reducer(
   state: TreadmillType = initialState,
@@ -50,8 +50,8 @@ export default function reducer(
     return {
       raw: { ...action.data },
       processed: processTreadmillData(action.data, action.metricSystem)
-    }
+    };
   }
 
-  return state
+  return state;
 }

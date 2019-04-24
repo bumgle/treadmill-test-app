@@ -1,3 +1,3 @@
-import Entertainment from './Entertainment'
+import Entertainment from './Entertainment';
 
-export default Entertainment
+export default Entertainment;

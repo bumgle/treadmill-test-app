@@ -1,47 +1,49 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import NavBar from '../NavBar'
+import NavBar from '../NavBar';
 
-import './Layout.scss'
+import './Layout.scss';
 
 interface LayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 interface LayoutState {
-  fontSize: string
+  fontSize: string;
 }
 
 class Layout extends React.PureComponent<LayoutProps, LayoutState> {
-  private boxRef = React.createRef<HTMLDivElement>()
+  private boxRef = React.createRef<HTMLDivElement>();
 
   public constructor(props: LayoutProps) {
-    super(props)
+    super(props);
     this.state = {
       fontSize: '14px'
-    }
+    };
   }
 
   public componentDidMount() {
-    this.calculateFont()
-    window.addEventListener('resize', this.calculateFont)
+    this.calculateFont();
+    window.addEventListener('resize', this.calculateFont);
   }
 
   public componentWillUnmount(): void {
-    window.removeEventListener<'resize'>('resize', this.calculateFont)
+    window.removeEventListener<'resize'>('resize', this.calculateFont);
   }
 
   private calculateFont = (): void => {
-    const size: string = `${Math.round(this.boxRef.current.clientHeight / 7)}px`
+    const size: string = `${Math.round(
+      this.boxRef.current.clientHeight / 7
+    )}px`;
 
     this.setState({
       fontSize: size
-    })
-  }
+    });
+  };
 
   public render() {
-    const { fontSize } = this.state
-    const { children } = this.props
+    const { fontSize } = this.state;
+    const { children } = this.props;
 
     return (
       <div ref={this.boxRef} className="box" style={{ fontSize }}>
@@ -52,8 +54,8 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Layout
+export default Layout;

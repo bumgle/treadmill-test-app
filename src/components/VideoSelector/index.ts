@@ -1,3 +1,3 @@
-import VideoSelector from './VideoSelector'
+import VideoSelector from './VideoSelector';
 
-export default VideoSelector
+export default VideoSelector;

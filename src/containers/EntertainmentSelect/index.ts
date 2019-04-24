@@ -1,3 +1,3 @@
-import EntertainmentSelect from './EntertainmentSelect'
+import EntertainmentSelect from './EntertainmentSelect';
 
-export default EntertainmentSelect
+export default EntertainmentSelect;

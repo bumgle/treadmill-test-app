@@ -1,3 +1,3 @@
-import AwayFromScreen from './AwayFromScreen'
+import AwayFromScreen from './AwayFromScreen';
 
-export default AwayFromScreen
+export default AwayFromScreen;
