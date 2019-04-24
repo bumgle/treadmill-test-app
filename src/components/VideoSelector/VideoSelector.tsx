@@ -1,24 +1,28 @@
-import * as React from "react";
+import * as React from 'react'
 
-import "./VideoSelector.scss";
+import './VideoSelector.scss'
 
 type VideoSelectorTypes = {
-  source: string;
-  setVideoSource: (source: string) => void;
-};
+  source: string
+  setVideoSource: (source: string) => void
+}
 
 export default class VideoSelector extends React.PureComponent<
   VideoSelectorTypes
 > {
-  onValueChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
-    this.props.setVideoSource(event.target.value);
-  };
+  private onValueChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ): void => {
+    const { setVideoSource } = this.props
+    setVideoSource(event.target.value)
+  }
 
-  render() {
+  public render() {
+    const { source } = this.props
     return (
       <select
         className="video-selector"
-        value={this.props.source}
+        value={source}
         onChange={this.onValueChange}
       >
         <option value="" disabled hidden>
@@ -34,6 +38,6 @@ export default class VideoSelector extends React.PureComponent<
           Movie 90
         </option>
       </select>
-    );
+    )
   }
 }

@@ -1,21 +1,24 @@
-import * as React from "react";
+import * as React from 'react'
 
-import "./MetricsSwitch.scss";
+import './MetricsSwitch.scss'
 
 interface MetricsSwitchTypes {
-  msystem: boolean;
-  onChange: (event: boolean) => void;
+  msystem: boolean
+  onChange: (event: boolean) => void
 }
 
 export default class MetricsSwitch extends React.PureComponent<
   MetricsSwitchTypes
 > {
-  onCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    this.props.onChange(event.target.checked);
-  };
+  private onCheckboxChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    const { onChange } = this.props
+    onChange(event.target.checked)
+  }
 
-  render() {
-    const { msystem } = this.props;
+  public render() {
+    const { msystem } = this.props
     return (
       <form className="mswitch">
         <label htmlFor="ms-input">
@@ -28,6 +31,6 @@ export default class MetricsSwitch extends React.PureComponent<
           Imperial metric system
         </label>
       </form>
-    );
+    )
   }
 }

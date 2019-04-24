@@ -1,37 +1,37 @@
-import { ITreadmillData, ITreadmillProcessed } from "../../types";
+import { TreadmillDataType, TreadmillProcessedType } from '../../types'
 
 const toHHMMSS = (secs: number): string => {
-  const hours = Math.floor(secs / 3600) % 24;
-  const minutes = Math.floor(secs / 60) % 60;
-  const seconds = secs % 60;
+  const hours = Math.floor(secs / 3600) % 24
+  const minutes = Math.floor(secs / 60) % 60
+  const seconds = secs % 60
   return [hours, minutes, seconds]
-    .map(v => (v < 10 ? "0" + v : v))
-    .filter((v, i) => v !== "00" || i > 0)
-    .join(":");
-};
+    .map(v => (v < 10 ? `0${v}` : v))
+    .filter((v, i) => v !== '00' || i > 0)
+    .join(':')
+}
 
 const MSDictianary = [
   {
-    distance: "Km",
-    speed: "Km/h",
+    distance: 'Km',
+    speed: 'Km/h',
     speed_unit_length: 1000,
     speed_unit_koef: 1,
-    pace: "min/Km"
+    pace: 'min/Km'
   },
   {
-    distance: "Mi",
-    speed: "Mi/h",
+    distance: 'Mi',
+    speed: 'Mi/h',
     speed_unit_length: 1609.344,
     speed_unit_koef: 0.621371,
-    pace: "min/Mi"
+    pace: 'min/Mi'
   }
-];
+]
 
 export default function processTreadmillData(
-  data: ITreadmillData,
+  data: TreadmillDataType,
   metrickSystem: boolean
-): ITreadmillProcessed {
-  const MSSystem = MSDictianary[Number(metrickSystem)];
+): TreadmillProcessedType {
+  const MSSystem = MSDictianary[Number(metrickSystem)]
 
   return {
     duration: toHHMMSS(Math.floor(data.duration)),
@@ -50,5 +50,5 @@ export default function processTreadmillData(
     distance: `${(data.distance * MSSystem.speed_unit_koef).toFixed(2)} ${
       MSSystem.distance
     }`
-  };
+  }
 }

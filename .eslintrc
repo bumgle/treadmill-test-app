@@ -8,12 +8,7 @@
     "browser": true,
     "jest/globals": true
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react-hooks",
-    "jest",
-    "prettier"
-  ],
+  "plugins": ["@typescript-eslint", "react-hooks", "jest", "prettier"],
   "extends": [
     "airbnb",
     "plugin:@typescript-eslint/recommended",
@@ -25,6 +20,7 @@
     "import/named": "off",
     "import/export": "off",
     "import/prefer-default-export": "off",
+    "jsx-a11y/media-has-caption": "off",
     "no-unused-expressions": [
       "warn",
       {
@@ -34,13 +30,11 @@
     ],
     "@typescript-eslint/prefer-interface": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/camelcase": "off",
     "react/jsx-filename-extension": [
       "warn",
       {
-        "extensions": [
-          ".jsx",
-          ".tsx"
-        ]
+        "extensions": [".jsx", ".tsx"]
       }
     ],
     "react/prop-types": "off",

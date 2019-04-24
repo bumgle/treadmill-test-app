@@ -1,13 +1,13 @@
-import * as React from "react";
+import * as React from 'react'
 
-import "./AwayFromScreen.scss";
+import './AwayFromScreen.scss'
 
 type AwayFromScreen = {
-  children: React.ReactNode;
-};
+  children: React.ReactNode
+}
 
-const AwayFromScreen: React.FC<AwayFromScreen> = props => (
-  <div className="away-from-screen">{props.children}</div>
-);
+const AwayFromScreen: React.FC<AwayFromScreen> = ({ children }) => (
+  <div className="away-from-screen">{children}</div>
+)
 
-export default AwayFromScreen;
+export default AwayFromScreen

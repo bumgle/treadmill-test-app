@@ -1,30 +1,30 @@
-import { Dispatch } from "redux";
-import { AppState } from "../../ducs";
-import { sendTreadMillDataAction } from "../../ducs/Treadmill";
-import { ITreadmillData } from "../../types";
-import generateTreadmillData from "../generateTreadmillData/";
+import { Dispatch } from 'redux'
+import { AppState } from '../../ducks'
+import { sendTreadMillDataAction } from '../../ducks/Treadmill'
+import { TreadmillDataType } from '../../types'
+import generateTreadmillData from '../generateTreadmillData'
 
-interface getStateType {
-  (): AppState;
+interface GetStateType {
+  (): AppState
 }
 
 export default function fakeSocket(
   dispatch: Dispatch,
-  getState: getStateType,
+  getState: GetStateType,
   interval: number = 500
 ) {
-  var intervalObj: number = 0;
+  let intervalObj = 0
   return () => {
     intervalObj = setInterval(() => {
-      const state: AppState = getState();
-      const treadmill: ITreadmillData = generateTreadmillData(
+      const state: AppState = getState()
+      const treadmill: TreadmillDataType = generateTreadmillData(
         state.treadmill.raw
-      );
+      )
       if (treadmill.duration > 0 && treadmill.duration_countdown) {
-        dispatch(sendTreadMillDataAction(treadmill, state.msystem));
+        dispatch(sendTreadMillDataAction(treadmill, state.msystem))
       } else {
-        clearInterval(intervalObj);
+        clearInterval(intervalObj)
       }
-    }, interval);
-  };
+    }, interval)
+  }
 }

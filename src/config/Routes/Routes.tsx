@@ -1,11 +1,11 @@
-import * as React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import * as React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import Layout from "../../components/Layout";
+import Layout from '../../components/Layout'
 
-import Dashboard from "../../containers/Dashboard";
-import Entertainment from "../../containers/Entertainment";
-import EntertainmentSelect from "../../containers/EntertainmentSelect";
+import Dashboard from '../../containers/Dashboard'
+import Entertainment from '../../containers/Entertainment'
+import EntertainmentSelect from '../../containers/EntertainmentSelect'
 
 export default () => (
   <Router>
@@ -17,4 +17,4 @@ export default () => (
       </Switch>
     </Layout>
   </Router>
-);
+)

@@ -1,13 +1,13 @@
-import * as React from "react";
+import * as React from 'react'
+
+import './ButtonGroupe.scss'
 
 interface ButtonGroupeProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
-import "./ButtonGroupe.scss";
+const ButtonGroupe: React.FC<ButtonGroupeProps> = ({ children }) => {
+  return <div className="button-group">{children}</div>
+}
 
-const ButtonGroupe: React.FC<ButtonGroupeProps> = props => {
-  return <div className="button-group">{props.children}</div>;
-};
-
-export default ButtonGroupe;
+export default ButtonGroupe

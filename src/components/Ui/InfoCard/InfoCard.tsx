@@ -1,17 +1,17 @@
-import * as React from "react";
+import * as React from 'react'
 
-import "./InfoCard.scss";
+import './InfoCard.scss'
 
 interface InfoCardType {
-  title: string;
-  value: string;
+  title: string
+  value: string
 }
 
-const InfoCard: React.FC<InfoCardType> = props => (
+const InfoCard: React.FC<InfoCardType> = ({ title, value }) => (
   <div className="icard">
-    <div className="icard__title">{props.title}</div>
-    <div className="icard__value">{props.value}</div>
+    <div className="icard__title">{title}</div>
+    <div className="icard__value">{value}</div>
   </div>
-);
+)
 
-export default React.memo(InfoCard);
+export default React.memo(InfoCard)

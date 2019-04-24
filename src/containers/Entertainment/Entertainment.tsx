@@ -1,34 +1,35 @@
-import * as React from "react";
+import * as React from 'react'
 
-import Video from "../../components/Video";
-import { connect } from "react-redux";
-import { Dispatch } from "redux";
-import { AppState } from "../../ducs";
-import { setVideoCurrent } from "../../ducs/Video";
-import { VideoStoreType } from "../../types";
+import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
+import Video from '../../components/Video'
+import { AppState } from '../../ducks'
+import { setVideoCurrent } from '../../ducks/Video'
+import { VideoStoreType } from '../../types'
 
 type EntertainmentProps = {
-  video: VideoStoreType;
-  setVideoCurrent: (current: number) => void;
-};
+  video: VideoStoreType
+  setVideoCur: (current: number) => void
+}
 
 const Entertainment: React.FC<EntertainmentProps> = props => {
+  const { video, setVideoCur } = props
   return (
     <>
-      <Video {...props.video} setVideoCurrent={props.setVideoCurrent} />
+      <Video {...video} setVideoCurrent={setVideoCur} />
     </>
-  );
-};
+  )
+}
 
 const mapStateToProps = (state: AppState) => ({
   video: state.video
-});
+})
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  setVideoCurrent: (current: number) => dispatch(setVideoCurrent(current))
-});
+  setVideoCur: (current: number) => dispatch(setVideoCurrent(current))
+})
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Entertainment);
+)(Entertainment)
