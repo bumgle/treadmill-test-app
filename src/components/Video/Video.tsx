@@ -8,7 +8,7 @@ interface VideoTypes {
   setVideoCurrent: (current: number) => void;
 }
 
-export default class Video extends React.Component<VideoTypes, {}> {
+export default class Video extends React.PureComponent<VideoTypes, {}> {
   private videoRef = React.createRef<HTMLVideoElement>();
 
   public componentDidMount() {
@@ -22,7 +22,15 @@ export default class Video extends React.Component<VideoTypes, {}> {
   public componentWillUnmount() {
     const { setVideoCurrent } = this.props;
     this.unBindEventListeners();
-    setVideoCurrent(this.videoRef.current.currentTime);
+    const videoNode = this.videoRef.current;
+    const time = videoNode.currentTime;
+
+    if (time) {
+      setVideoCurrent(time);
+      videoNode.addEventListener('timeupdate', (event: any) => {
+        setVideoCurrent(event.target.currentTime);
+      });
+    }
   }
 
   private onVideoMetadataLoaded = (event: any) => {
@@ -48,11 +56,9 @@ export default class Video extends React.Component<VideoTypes, {}> {
   public render() {
     const { source } = this.props;
     return (
-      <div className="video">
-        <video ref={this.videoRef} key={source} loop>
-          <source src={source} type="video/mp4" />
-        </video>
-      </div>
+      <video ref={this.videoRef} key={source} loop>
+        <source src={source} type="video/mp4" />
+      </video>
     );
   }
 }

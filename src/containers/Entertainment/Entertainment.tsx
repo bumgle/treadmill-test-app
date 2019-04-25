@@ -15,9 +15,9 @@ type EntertainmentProps = {
 const Entertainment: React.FC<EntertainmentProps> = props => {
   const { video, setVideoCur } = props;
   return (
-    <>
+    <div className="video">
       <Video {...video} setVideoCurrent={setVideoCur} />
-    </>
+    </div>
   );
 };
 

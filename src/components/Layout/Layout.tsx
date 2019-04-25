@@ -4,6 +4,7 @@ import NavBar from '../NavBar';
 
 import './Layout.scss';
 
+const FONT_RATIO_TO_HEIGHT = 7;
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -33,7 +34,7 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
 
   private calculateFont = (): void => {
     const size: string = `${Math.round(
-      this.boxRef.current.clientHeight / 7
+      this.boxRef.current.clientHeight / FONT_RATIO_TO_HEIGHT
     )}px`;
 
     this.setState({
@@ -46,12 +47,10 @@ class Layout extends React.PureComponent<LayoutProps, LayoutState> {
     const { children } = this.props;
 
     return (
-      <div ref={this.boxRef} className="box" style={{ fontSize }}>
-        <div className="layout">
-          <div className="layout__main">{children}</div>
-          <div className="layout__bottom">
-            <NavBar />
-          </div>
+      <div ref={this.boxRef} className="layout" style={{ fontSize }}>
+        <div className="layout__main">{children}</div>
+        <div className="layout__bottom">
+          <NavBar />
         </div>
       </div>
     );

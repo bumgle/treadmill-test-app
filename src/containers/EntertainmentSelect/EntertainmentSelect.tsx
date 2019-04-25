@@ -22,7 +22,7 @@ const EntertainmentSelect: React.FC<EntertainmentSelectProps> = (
   return (
     <>
       <VideoSelector source={video.source} setVideoSource={setVideo} />
-      <Link to="/entertainment">
+      <Link to="/entertainment" className="video">
         <Video {...video} setVideoCurrent={setVideoCur} />
       </Link>
     </>

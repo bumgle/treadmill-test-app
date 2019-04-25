@@ -1,10 +1,14 @@
 .video {
-  overflow: hidden;
   background-color: #000;
+  flex: 1 1 100%;
+  position: relative;
 
   video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
     width: 100%;
     height: auto;
-    margin: 0.2em auto;
+    max-height: 100%;
   }
 }
